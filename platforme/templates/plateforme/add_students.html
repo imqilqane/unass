@@ -1,0 +1,51 @@
+{% extends "plateforme/index.html" %} {% load static %} {% block content %}
+<div class="add-students">
+	<div class="container p-5">
+		<h5 class="text-info">
+			Ajouter des bénéficiaires et genere les diplomats pour la formation en
+			{{formation.date}}
+		</h5>
+		<form method="POST" class="form">
+			{% csrf_token %} {% for student in range %}
+			<div class="row student-field mb-3 p-2 bg-light border">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-4">
+							<label for="{{student}}">bénéficiaire N:{{student}}</label>
+							<input type="text" placeholder="Le nom complet de bénéficiaire" name="{{student}}" />
+						</div>
+						<div class="col-md-4">
+							<label for="{{student}}">CIN</label>
+							<input type="text" placeholder="Le CIN de bénéficiaire" name="{{student}}-cin" />
+						</div>
+						<div class="col-md-4">
+							<label for="{{student}}">la date de naissance</label>
+							<input type="date" name="{{student}}-bt" />
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-4">
+							<label for="{{student}}">Lieu de naissance</label>
+							<input type="text" placeholder="Lieu de naissance de bénéficiaire"
+								name="{{student}}-birthPlace" />
+						</div>
+						<div class="col-md-4">
+							<label for="{{student}}">Numéro de téléphone</label>
+							<input type="text" placeholder="Le numéro de téléphone de bénéficiaire"
+								name="{{student}}-phoneNumber" />
+						</div>
+						<div class="col-md-4">
+							<label for="{{student}}">La ville de formation </label>
+							<input type="text" placeholder="La ville de formation" name="{{student}}-formationPlace" />
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+			<button class="btn btn-success w-50">Save</button>
+		</form>
+	</div>
+</div>
+{%endblock %}

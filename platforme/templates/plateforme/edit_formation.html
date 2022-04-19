@@ -1,0 +1,42 @@
+{% extends "plateforme/index.html" %} {% load static %} {% block content %}
+<div class="container m-5 text-dark">
+	<h4 class="mb-3 text-info">Bonjour {{request.user.first_name}}!</h4>
+	<div class="row" style="display: block">
+		<div class="col-md-6">
+			<form method="POST">
+				{% csrf_token %}
+				<div class="title">
+					<h5><strong>Créer une formation</strong></h5>
+				</div>
+				<div class="date">
+					<label for="date"><strong>de</strong></label>
+					<input type="date" name="fromDate" id="date" class="w-100" required />
+				</div>
+				<div class="date">
+					<label for="date"><strong>a</strong></label>
+					<input type="date" name="toDate" id="date" class="w-100" required />
+				</div>
+				<div class="formateur">
+					<label for="formateur" style="display: block"><strong>Le formateur</strong></label>
+					<select class="form-select w-100" aria-label="Default select example" name="formateur"
+						id="formateur" required>
+						<option selected value="">Sélectionner un formateur</option>
+						{% for formateur in formateurs %}
+						<option value="{{formateur.id}}">
+							{{formateur.first_name}} {{formateur.last_name}}
+						</option>
+						{% endfor %}
+					</select>
+				</div>
+				<div class="message">
+					<label for="message" style="display: block"><strong>Un message pour le formateur</strong></label>
+					<textarea class="w-100" name="message" id="message" placeholder="Message pour le formateur"
+						cols="30" rows="10">
+{{formation.message}}</textarea>
+				</div>
+				<button class="btn btn-secondary w-100 mb-5">Édité</button>
+			</form>
+		</div>
+	</div>
+</div>
+{%endblock %}

@@ -1,0 +1,35 @@
+* {
+	box-sizing: border-box;
+}
+
+.form {
+	text-align: center;
+	margin: 20px;
+}
+.row.student-field {
+	width: 90%;
+	margin: 10px auto;
+}
+.row.student-field input {
+	width: 100%;
+	padding: 3px;
+	font-size: 13px;
+}
+label {
+	margin-top: 10px;
+}
+.msg {
+	border-radius: 5px;
+	text-align: center;
+	padding: 30px;
+}
+
+.edit-profile input,
+.platform-input input,
+select#formateur {
+	width: 50%;
+	padding: 5px;
+	border: 0.5px gray solid;
+	border-radius: 5px;
+	margin-bottom: 6px;
+}

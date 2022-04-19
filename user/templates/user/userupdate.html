@@ -1,0 +1,36 @@
+{% extends 'plateforme/index.html' %} {% block content %}
+<div class="container">
+	<div class="border pl-4 pr-4">
+		<h3 class="border-bottom pb-3 mb-3 mt-5">Éditer le profile</h3>
+		<form method="POST" enctype="multipart/form-data" class="edit-profile">
+			{% csrf_token %} {% for field in user_form %}
+			<span class="mt-3">{{field.label}}</span>
+			<div class="">{{field}}</div>
+			{% endfor %}
+			<div>
+				<br />
+				Profile image :
+				<a href="{{user.user_profile.image.url}}"
+					>{{user.user_profile.image}}</a
+				>
+				<br />
+				<span>Éditer profile image *</span>
+				<br />
+
+				<label for="image" class="btn btn-outline-secondary mt-3"
+					>choisissez l'image</label
+				>
+				<input
+					type="file"
+					name="image"
+					id="image"
+					accept="image/*"
+					style="display: none"
+				/>
+			</div>
+			<br />
+			<input class="btn btn-secondary mb-4" type="submit" value="Enregistrer" />
+		</form>
+	</div>
+</div>
+{% endblock content %}

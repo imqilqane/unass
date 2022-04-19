@@ -1,0 +1,621 @@
+/* framework */
+.container_size {
+	width: 80%;
+	margin: 30px auto;
+}
+.styled-h2 {
+	text-transform: uppercase;
+	font-size: 32px;
+	margin: 20px 0;
+}
+
+.styled-h2::before {
+	content: '';
+	width: 45px;
+	height: 5px;
+	background: #a61212;
+	position: relative;
+	display: block;
+	margin: 5px 0;
+}
+
+.display-block {
+	display: block !important;
+}
+/* end framework */
+
+/* activites section */
+
+/* activites section end */
+
+/* catalogue-formation section */
+
+/* catalogue-formation section end */
+
+/* welcome section */
+
+.welcome {
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+}
+.welcome h2 {
+	text-transform: uppercase;
+	font-size: 32px;
+	margin: 20px 0;
+}
+.welcome h2::before {
+	content: '';
+	width: 45px;
+	height: 5px;
+	background: #a61212;
+	position: relative;
+	display: block;
+	margin: 5px auto;
+}
+.welcome .cards {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.welcome .cards .card {
+	max-width: calc(90% / 3);
+	margin: 15px;
+	padding: 45px 0px;
+	border: 1px solid #efefef;
+	border-radius: 10px;
+	box-shadow: 1px 1px 5px 1px gainsboro;
+	position: relative;
+}
+.welcome .cards .card .cover {
+	width: 100%;
+	min-height: 0%;
+	background: #f2b90c;
+	border-radius: 10px;
+	position: absolute;
+	top: 0;
+	transition: min-height 0.45s ease-out;
+}
+.welcome .card:hover .cover {
+	min-height: 100%;
+	cursor: pointer;
+}
+
+.welcome .card .card-content {
+	z-index: 1;
+	position: relative;
+}
+
+.welcome .card i {
+	font-size: 28px;
+	color: #f2b90c;
+	background: #a61212;
+	padding: 15px;
+	border-radius: 50%;
+	margin-bottom: 15px;
+	transition: 0.2s;
+}
+.welcome .card:hover i {
+	color: #a61212;
+	background: none;
+}
+.welcome .card h3 {
+	font-size: 22px;
+	margin-bottom: 15px;
+}
+.welcome .card p {
+	margin-bottom: 15px;
+}
+.welcome .card a {
+	text-decoration: none;
+}
+
+/* Featured works section */
+
+.featured {
+	width: 80%;
+	margin: 50px auto;
+	text-align: center;
+}
+
+.featured h2 {
+	text-transform: uppercase;
+	font-size: 32px;
+	margin: 20px 0;
+}
+
+.featured h2::before {
+	content: '';
+	width: 45px;
+	height: 5px;
+	background: #a61212;
+	position: relative;
+	display: block;
+	margin: 5px auto;
+}
+
+.featured .cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.featured .cards .card {
+	position: relative;
+	margin-top: 15px;
+	max-width: calc(90% / 3);
+}
+.featured .cards .card img {
+	width: 100%;
+}
+.featured .cards .cover {
+	position: absolute;
+	width: 110%;
+	height: 110%;
+	top: -5%;
+	left: -5%;
+	z-index: 1;
+	background-color: #f2ba2fc2;
+	color: black;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0.5s, opacity 0.4s linear;
+}
+
+.featured .cards .card:hover .cover {
+	visibility: visible;
+	opacity: 1;
+}
+
+.featured .cards .cover .cover-content {
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%);
+}
+
+.featured .cards .cover .cover-content h3 {
+	font-size: 20px;
+}
+
+.featured .cards .cover .cover-content a {
+	color: white;
+	font-size: 16px;
+	display: block;
+	background: #a72b1b;
+	width: 35px;
+	margin: 0 auto;
+	padding: 5px 0;
+	border-radius: 50%;
+	margin-top: 5px;
+}
+
+/* services styling */
+
+.services {
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.services h2 {
+	text-transform: uppercase;
+	font-size: 32px;
+	margin: 20px 0;
+}
+
+.services h2::before {
+	content: '';
+	width: 45px;
+	height: 5px;
+	background: #a61212;
+	position: relative;
+	display: block;
+	margin: 5px auto;
+}
+
+.services .cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.services .cards .card {
+	max-width: 30%;
+	padding: 30px 10px;
+	border: 1px solid gray;
+	margin: 10px 0;
+	border-radius: 10px;
+	box-shadow: 1px 1px 3px 1px #efefef;
+	position: relative;
+}
+
+.services .cards .card h3 {
+	margin-bottom: 10px;
+}
+
+.services .cards .card i {
+	padding: 10px;
+	margin-bottom: 10px;
+	display: inline-block;
+	background: #a61212;
+	border-radius: 50%;
+	color: #f0b50c;
+}
+
+.services .cards .card .cover {
+	position: absolute;
+	width: 0%;
+	height: 100%;
+	background: #f0b50c;
+	top: 0;
+	left: 0;
+	border: 1px solid gray;
+	border-radius: 10px;
+	transition: width 0.4s, opacity 0.3s;
+	opacity: 0;
+}
+
+.services .cards .card:hover .cover {
+	width: 100%;
+	opacity: 1;
+}
+
+.services .cards .card .card-content {
+	z-index: 1;
+	position: relative;
+}
+
+/* why choose us */
+
+.choose_us {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 0;
+}
+.choose_us .content {
+	flex: 1;
+}
+
+.choose_us .content h2 {
+	text-transform: uppercase;
+	font-size: 32px;
+	margin: 20px 0;
+}
+
+.choose_us .content h2::before {
+	content: '';
+	width: 45px;
+	height: 5px;
+	background: #a61212;
+	position: relative;
+	display: block;
+	margin: 5px 0;
+}
+
+.choose_us .content p {
+	margin-bottom: 15px;
+}
+
+.choose_us .content ul {
+	list-style: none;
+}
+
+.choose_us .content ul li::before {
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	content: '\f058';
+	color: #a61212;
+	font-size: 16px;
+	margin-right: 15px;
+}
+
+/* Slideshow container */
+.slideshow-container {
+	max-width: 1000px;
+	position: relative;
+	margin: auto;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	padding: 16px;
+	margin-top: -22px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+	background-color: rgb(240 181 12);
+}
+
+/* Caption text */
+.text {
+	color: #f2f2f2;
+	font-size: 15px;
+	padding: 8px 12px;
+	position: absolute;
+	bottom: 8px;
+	width: 100%;
+	text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+	color: #f2f2f2;
+	font-size: 12px;
+	padding: 8px 12px;
+	position: absolute;
+	top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #f1ce7e;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
+
+.my_slide-show .active,
+.dot:hover {
+	background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+	opacity: 1 !important;
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+	from {
+		opacity: 0.4;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fade {
+	from {
+		opacity: 0.4;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+	.prev,
+	.next,
+	.text {
+		font-size: 11px;
+	}
+}
+
+/* our team styling */
+
+.our-team {
+	width: 80%;
+	margin: 30px auto;
+	text-align: center;
+}
+.our-team h2 {
+	text-transform: uppercase;
+	font-size: 32px;
+	margin: 20px 0;
+}
+.our-team h2::before {
+	content: '';
+	width: 45px;
+	height: 5px;
+	background: #a61212;
+	position: relative;
+	display: block;
+	margin: 5px auto;
+}
+.our-team .cards {
+	display: flex;
+	justify-content: space-between;
+}
+
+.our-team .cards .my_card {
+	position: relative;
+}
+
+.our-team .cards .my_card .image {
+	display: flex;
+	width: 100%;
+	height: 87%;
+	position: relative;
+}
+.our-team .cards .my_card .image img {
+	max-width: 400px;
+	max-height: 400px;
+}
+.our-team .cards .my_card .cover {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	background-color: #aaaaaaab;
+	color: #efefef;
+	opacity: 0;
+	transition: opacity 0.8s;
+}
+
+.our-team .cards .my_card .cover .cover-content {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.our-team .cards .my_card .cover .cover-content h3 {
+	color: #a61212;
+	margin-bottom: 10px;
+	text-decoration: underline;
+}
+.our-team .cards .my_card .cover .cover-content a {
+	color: white;
+	font-size: 16px;
+	display: block;
+	background: #a72b1b;
+	width: 35px;
+	margin: 0 auto;
+	padding: 5px 0;
+	border-radius: 50%;
+	margin-top: 5px;
+}
+
+.our-team .cards .my_card:hover .cover {
+	opacity: 1;
+}
+
+/* contact styling */
+.contact {
+	width: 80%;
+	margin: 30px auto;
+	text-align: center;
+}
+.contact h2 {
+	text-transform: uppercase;
+	font-size: 32px;
+	margin: 20px 0;
+}
+.contact h2::before {
+	content: '';
+	width: 45px;
+	height: 5px;
+	background: #a61212;
+	position: relative;
+	display: block;
+	margin: 5px auto;
+}
+.contact_info {
+	margin-top: 40px;
+	display: flex;
+	justify-content: space-between;
+}
+.contact .contact_info i {
+	color: #f0b50c;
+	font-size: 32px;
+	margin-bottom: 15px;
+}
+.contact .contact_info h3 {
+	margin-bottom: 10px;
+}
+.contact .get_in-touch {
+	margin: 20px auto;
+	width: 80%;
+	text-align: center;
+}
+.contact .get_in-touch .info_collection {
+	display: flex;
+	justify-content: space-between;
+}
+.contact .get_in-touch input {
+	background: #f2f2f2;
+	border: none;
+	outline: none;
+	padding: 10px;
+	margin-bottom: 10px;
+	width: 49.6%;
+}
+#subject {
+	width: 100%;
+}
+#message {
+	display: block;
+	width: 100%;
+	background: #f2f2f2;
+	border: none;
+	outline: none;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.contact .get_in-touch button {
+	padding: 10px 20px;
+	border: none;
+	outline: none;
+	background: #f0b50c;
+	color: #a61212;
+}
+
+.contact .get_in-touch button:hover {
+	cursor: pointer;
+	background: #a61212;
+	color: #f0b50c;
+}
+
+/* about styling */
+
+.about {
+	width: 80%;
+	margin: 30px auto;
+	text-align: center;
+}
+.about h2 {
+	text-transform: uppercase;
+	font-size: 32px;
+	margin: 20px 0;
+}
+.about h2::before {
+	content: '';
+	width: 45px;
+	height: 5px;
+	background: #a61212;
+	position: relative;
+	display: block;
+	margin: 5px auto;
+}
+.about .logo h3 {
+	color: #a61212;
+	font-size: 1.5em;
+	margin-bottom: 10px;
+}
+.about .cards {
+	display: flex;
+	justify-content: space-between;
+}
+.about .cards p {
+	margin-bottom: 10px;
+}
+
+.cat-ant {
+	background: #eaeaea;
+	border-bottom: 1px solid #a61212;
+	border-top: 1px solid #a61212;
+}
+
+.cat-ant .row {
+	width: 80%;
+	margin: 0 auto;
+}

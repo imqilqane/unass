@@ -1,0 +1,58 @@
+{% extends 'plateforme/index.html' %} {% block content %} {% load static %}
+{% if messages %} {% for message in messages %}
+<div class="alert alert-{{ message.tags }}">{{message}}</div>
+{% endfor %} {% endif %}
+<div class="container mt-5 mb-5" style="min-height: 60vh">
+	<h4 class="bb-1 text-info">
+		{% if formation.teacher == request.user %} Votre fermation en
+		<strong>{{formation.date}}</strong>
+		{% else %} La fermation en <strong>{{formation.date}}</strong> avec le
+		formateur
+		<strong>{{formation.teacher}}</strong>
+		{% endif %}
+	</h4>
+	<div class="studens">
+		<h5 class="mt-5">Les bénéficiaires :</h5>
+		<ol>
+			{% if deplomats %} {% for deplomat in deplomats %}
+			<li class="bg-light border p-3 mb-3">
+				<p><strong>bénéficiaire</strong> : {{deplomat.student_name}}</p>
+				<p><strong>Numéro de série de diplomat</strong> : {{deplomat.serial_num}}</p>
+				{% if formation.cert_dir %}
+				<button>
+					<a href="../../../media/{{formation.id}}/{{deplomat.cin}}.pdf" download>
+						telecharger
+					</a>
+				</button>
+				{% endif %}
+			</li>
+			{% endfor %} {% else %}
+			<div class="msg bg-light border">
+				{% if request.user.is_active %}
+				<form method="POST">
+					{% csrf_token %}
+					<div class="row">
+						<div class="col-md-3">
+						</div>
+						<div class="col-md-6 mb-4">
+							<label for="studentsNumber">Nombre des bénéficiaires</label>
+							<input type="text" name="studentsNumber" id="studentsNumber"
+								placeholder="Nombre des bénéficiaires" class="form-control" />
+						</div>
+					</div>
+					<h5>
+						<button class="p-3">
+							Ajouter des bénéficiaires et genere les
+							diplomats
+						</button>
+					</h5>
+				</form>
+				{% else %}
+				<h4>Rien à montrer</h4>
+				{% endif %}
+			</div>
+			{% endif %}
+		</ol>
+	</div>
+</div>
+{% endblock %}

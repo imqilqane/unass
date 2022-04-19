@@ -1,0 +1,30 @@
+{% extends 'plateforme/index.html' %} {% block content %}
+<div class="container border pl-4 pr-4 mb-5 mt-5">
+	<h3 class="border-bottom pb-3 mb-3 mt-5">connexion</h3>
+	{% if messages %} {% for message in messages %}
+	<div class="alert alert-{{ message.tags }}">{{message}}</div>
+	{% endfor %} {% endif %}
+	<form method="POST">
+		{% csrf_token %}
+		<div>
+			<label for="email">Email</label>
+			<input type="email" name="email" id="email" class="form-control" />
+		</div>
+		<div>
+			<label for="password">Le mot de passe</label>
+			<input
+				type="password"
+				name="password"
+				id="password"
+				class="form-control"
+			/>
+		</div>
+		<br />
+		<input class="btn btn-secondary mb-4" type="submit" value="connexion" />
+	</form>
+	<div class="border-top mt-4 pt-2 pb-4 text-center">
+		<small> si vous n'avez pas de compte vous pouvez vous inscrire </small
+		><a href="{% url 'sign_up'%}"> ici</a>
+	</div>
+</div>
+{% endblock content %}

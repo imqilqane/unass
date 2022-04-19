@@ -1,0 +1,12 @@
+{% extends 'plateforme/index.html' %} {% block content %}
+<div class="border pl-4 pr-4" style="min-height: 70vh">
+	<h3 class="border-bottom pb-3 mb-3 mt-5">Se déconnecter</h3>
+	<div class="alert alert-success">
+		vous vous êtes se déconnecter avec succès
+	</div>
+
+	<div class="pt-2 pb-4">
+		<a href="{% url 'login'%}">Se connecter</a>
+	</div>
+</div>
+{% endblock content %}
