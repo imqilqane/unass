@@ -1,0 +1,463 @@
+/* X Small devices The navbar toggle appears at this breakpoint */
+@media (max-width: 481px) {
+	/* home responsive */
+	.nav-container .logo {
+		font-size: 14px;
+	}
+	.our-team .cards .card .image img {
+		max-width: 250px;
+		max-height: 250px;
+	}
+	.our-team .cards .card .cover {
+		height: 250px;
+	}
+	.burger {
+		width: 29px;
+		height: 28px;
+		position: absolute;
+		transform: translateY(35%);
+		right: 10%;
+		display: inline-block;
+	}
+	.nav-container .logo {
+		color: #f2f2f2;
+		padding: 10px 0px;
+		font-size: 14px;
+	}
+	.header {
+		z-index: 2;
+	}
+	.links {
+		list-style: none;
+		align-items: center;
+		position: absolute;
+		right: 0;
+		background: #f0b50c;
+		padding: 10px;
+		width: 48%;
+		display: none;
+	}
+	.slider-content {
+		top: 30%;
+	}
+	.slider-content h2 {
+		text-transform: uppercase;
+		font-size: 23px;
+		margin-bottom: 5px;
+	}
+	.slider-content p {
+		font-size: 15px;
+	}
+	.welcome .cards .card,
+	.services .cards .card,
+	.featured .cards .card {
+		max-width: none;
+	}
+	.choose_us,
+	.our-team .cards {
+		display: block;
+	}
+	.choose_us .content,
+	.our-team .cards .card {
+		margin-bottom: 20px;
+	}
+	.contact_info {
+		display: block;
+	}
+	.contact_info .phone,
+	.contact_info .email,
+	.contact_info .address {
+		margin-bottom: 5px;
+	}
+	.about .cards {
+		display: block;
+	}
+	.about .cards .image img {
+		width: 322px;
+	}
+
+	/* blog responsive  */
+	.blog-section .rows {
+		display: block;
+	}
+
+	.row.whats_new {
+		max-width: 100%;
+	}
+	.row.whats_new .card,
+	.row.whats_raising .card,
+	.row.whats_hot .card {
+		text-align: center;
+		position: relative;
+		margin-bottom: 15px;
+		width: 85%;
+	}
+	.whats_raising .card .text,
+	.whats_raising .card {
+		position: static;
+	}
+	.whats_raising .card img {
+		/* max-width: 85%; */
+		width: 100%;
+		height: 100%;
+	}
+	.whats_hot .card .text,
+	.whats_hot .card {
+		position: static;
+	}
+	.whats_hot .card img {
+		/* max-width: 85%; */
+		width: 100%;
+		height: 100%;
+	}
+
+	/* post detials */
+	.post_detiels,
+	.last-post {
+		display: block;
+	}
+	.side {
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 576px) and (min-width: 481px) {
+	.nav-container .logo {
+		font-size: 14px;
+	}
+
+	.burger {
+		width: 29px;
+		height: 28px;
+		position: absolute;
+		transform: translateY(35%);
+		right: 10%;
+		display: inline-block;
+	}
+	.nav-container .logo {
+		color: #f2f2f2;
+		padding: 10px 0px;
+		font-size: 14px;
+	}
+	.header {
+		z-index: 2;
+	}
+	.links {
+		list-style: none;
+		align-items: center;
+		position: absolute;
+		right: 0;
+		background: #f0b50c;
+		padding: 10px;
+		width: 48%;
+		display: none;
+	}
+	.slider-content {
+		top: 30%;
+	}
+	.slider-content h2 {
+		text-transform: uppercase;
+		font-size: 23px;
+		margin-bottom: 5px;
+	}
+	.slider-content p {
+		font-size: 15px;
+	}
+	.welcome .cards .card,
+	.services .cards .card,
+	.featured .cards .card {
+		max-width: none;
+	}
+	.choose_us,
+	.our-team .cards {
+		display: block;
+	}
+	.choose_us .content,
+	.our-team .cards .card {
+		margin-bottom: 20px;
+	}
+	.contact_info {
+		display: block;
+	}
+	.contact_info .phone,
+	.contact_info .email,
+	.contact_info .address {
+		margin-bottom: 5px;
+	}
+	.about .cards {
+		display: block;
+	}
+	.about .cards .image img {
+		width: 400px;
+	}
+
+	/* blog responsive  */
+	.blog-section .rows {
+		display: block;
+	}
+
+	.row.whats_new {
+		max-width: 100%;
+	}
+	.row.whats_new .card,
+	.row.whats_raising .card,
+	.row.whats_hot .card {
+		text-align: center;
+		position: relative;
+		margin-bottom: 15px;
+		width: 90%;
+	}
+	.whats_raising .card .text,
+	.whats_raising .card {
+		position: static;
+	}
+	.whats_raising .card img {
+		/* max-width: 85%; */
+		width: 100%;
+		height: 100%;
+	}
+	.whats_hot .card .text,
+	.whats_hot .card {
+		position: static;
+	}
+	.whats_hot .card img {
+		/* max-width: 85%; */
+		width: 100%;
+		height: 100%;
+	}
+	/* post detials */
+	.post_detiels,
+	.last-post {
+		display: block;
+	}
+	.side {
+		max-width: 100%;
+	}
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 768px) and (min-width: 576px) {
+	.burger {
+		width: 40px;
+		height: 40px;
+		position: absolute;
+		transform: translateY(35%);
+		right: 10%;
+		display: inline-block;
+	}
+	.nav-container .logo {
+		color: #f2f2f2;
+		padding: 10px 0px;
+		font-size: 23px;
+	}
+	.links {
+		list-style: none;
+		align-items: center;
+		position: absolute;
+		right: 0;
+		background: #f0b50c;
+		padding: 10px;
+		width: 48%;
+		display: none;
+	}
+	.slider {
+		top: -66px;
+	}
+	.welcome .cards .card,
+	.services .cards .card,
+	.featured .cards .card {
+		max-width: none;
+	}
+	.choose_us,
+	.our-team .cards {
+		display: block;
+	}
+	.choose_us .content,
+	.our-team .cards .card {
+		margin-bottom: 20px;
+	}
+	.about .cards {
+		display: block;
+	}
+	/* blog responsive  */
+	.blog-section .rows {
+		display: block;
+	}
+
+	.row.whats_new {
+		max-width: 100%;
+	}
+	.row.whats_new .card,
+	.row.whats_raising .card,
+	.row.whats_hot .card {
+		text-align: center;
+		position: relative;
+		margin-bottom: 15px;
+		width: 95%;
+	}
+	.whats_raising .card .text,
+	.whats_raising .card {
+		position: static;
+	}
+	.whats_raising .card img {
+		/* max-width: 85%; */
+		width: 100%;
+		height: 100%;
+	}
+	.whats_hot .card .text,
+	.whats_hot .card {
+		position: static;
+	}
+	.whats_hot .card img {
+		/* max-width: 85%; */
+		width: 100%;
+		height: 100%;
+	}
+	/* post detials */
+	.post_detiels,
+	.last-post {
+		display: block;
+	}
+	.side {
+		max-width: 100%;
+	}
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (max-width: 992px) and (min-width: 768px) {
+	.burger {
+		width: 40px;
+		height: 40px;
+		position: absolute;
+		transform: translateY(35%);
+		right: 10%;
+		display: inline-block;
+	}
+	.nav-container .logo {
+		color: #f2f2f2;
+		padding: 10px 0px;
+		font-size: 23px;
+	}
+	.links {
+		list-style: none;
+		align-items: center;
+		position: absolute;
+		right: 0;
+		background: #f0b50c;
+		padding: 10px;
+		width: 48%;
+		display: none;
+	}
+	.slider {
+		top: -66px;
+	}
+	.welcome .cards .card,
+	.services .cards .card,
+	.featured .cards .card {
+		max-width: none;
+		flex-basis: 100%;
+	}
+	.choose_us,
+	.our-team .cards {
+		display: block;
+	}
+	.choose_us .content,
+	.our-team .cards .card {
+		margin-bottom: 20px;
+	}
+	.our-team .cards .card .cover .cover-content {
+		position: absolute;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 60%;
+		left: 50%;
+	}
+	.about .cards {
+		display: block;
+	}
+	/* blog responsive  */
+	.blog-section .rows {
+		display: block;
+	}
+
+	.row.whats_new {
+		max-width: 100%;
+	}
+	.row.whats_new .card,
+	.row.whats_raising .card,
+	.row.whats_hot .card {
+		text-align: center;
+		position: relative;
+		margin-bottom: 15px;
+	}
+	.whats_raising .card .text,
+	.whats_raising .card {
+		position: static;
+	}
+	.whats_raising .card img {
+		/* max-width: 85%; */
+		width: 100%;
+		height: 100%;
+	}
+	.whats_hot .card .text,
+	.whats_hot .card {
+		position: static;
+	}
+	.whats_hot .card img {
+		/* max-width: 85%; */
+		width: 100%;
+		height: 100%;
+	}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 1125px) and (min-width: 992px) {
+	.welcome .cards .card {
+		max-width: calc(88% / 3);
+		margin: 15px;
+		padding: 45px 0px;
+		border: 1px solid #efefef;
+		border-radius: 10px;
+		box-shadow: 1px 1px 5px 1px gainsboro;
+		position: relative;
+	}
+	.our-team .cards .card .image img {
+		max-width: 385px;
+	}
+
+	.our-team .cards .card .cover {
+		height: 385px;
+	}
+
+	/* blog responsive  */
+
+	.row.whats_new,
+	.row.whats_raising,
+	.row.whats_hot {
+		max-width: 33% !important ;
+	}
+	.row.whats_raising .card,
+	.row.whats_hot .card {
+		max-width: 100% !important ;
+		padding: 10px;
+		display: block;
+	}
+	.row.whats_new .card {
+		max-width: 100% !important ;
+		padding: 10px;
+		display: block;
+		background: #f2cc55;
+		border-bottom: 3px solid #a61212;
+		margin-bottom: 15px;
+		text-align: center;
+	}
+
+	.row.whats_new .card .image img,
+	.row.whats_raising .card .image img,
+	.row.whats_hot .card .image img {
+		max-width: 100% !important ;
+	}
+	.text {
+		position: static !important;
+	}
+}

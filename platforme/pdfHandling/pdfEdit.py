@@ -3,7 +3,7 @@ import io
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 
-def printOnPDF(name, CIN, bidthDay, placeOfBirth, formationPlace, start, end, faitLe, faitLoDate, sertNum, pdfName, dirName):
+def printOnPDF(name, CIN, bidthDay, placeOfBirth, formationPlace, start, end, faitLe, faitLoDate, sertNum, pdfName, dirName, fourmateur):
     packet = io.BytesIO()
     can = canvas.Canvas(packet, pagesize=letter)
     can.setFont('Helvetica', 16)

@@ -31,11 +31,54 @@
 
 			<div class="formations">
 				<h5>List des formations sur cette ville :</h5>
+				{% if request.user.is_director_national %}
+				<form method="POST">
+					{% csrf_token %}
+					<div class="formateur">
+						<label for="antenne" style="display: block"><strong>Antenne</strong></label>
+						<select class="form-select w-100" name="antenne" id="antenne" required>
+							<option value="">Sélectionner un Antenne</option>
+							{% for antenne in antennes %}
+							<option value="{{antenne.id}}">
+								{{antenne.text}}
+							</option>
+							{% endfor %}
+						</select>
+						<button class="btn btn-secondary w-100 mb-5 mt-2">Filter</button>
+					</div>
+				</form>
+				{% endif %}
 				{% if formations %}
 				<div class="list_formations">
 					<ul class="list-group" style="list-style: none">
 						{% for formation in formations %}
 						{% if request.user.is_director_national %}
+
+
+
+
+						{% if formation.teacher == request.user %}
+						{% if formation.refused == False %}
+						<li class="msg bg-light border mb-3">
+							la fermation en <strong>{{formation.fromDate}}</strong> avec
+							<strong> Vous - </strong>
+							{% if formation.accepted %}
+							<a href="{% url 'formation_details' formation.id %}">Détails</a>
+							{% else %} ( a respondre )
+							<a href="{% url 'accept_formation' formation.id %}" class="text-success">Accepter</a>
+							|
+							<a href="{% url 'refuse_formation' formation.id %}" class="text-danger">Refuse</a>
+							<div class="msg">
+								<p>
+									message de president:
+									<strong>{{formation.president.last_name}}</strong>
+								</p>
+								<p class="border p-3">{{formation.message}}</p>
+							</div>
+							{% endif %}
+						</li>
+						{% endif %}
+						{% else %}
 						{% if formation.accepted %}
 						<li class="msg bg-light border mb-3">
 							la fermation en <strong>{{formation.fromDate}}</strong> de directeur
@@ -59,6 +102,12 @@
 							<a href="">En attendant...</a>
 						</li>
 						{% endif %}
+						{% endif %}
+
+
+
+
+
 						{% elif request.user.is_staff %}
 						{% if formation.teacher == request.user %}
 						{% if formation.refused == False %}

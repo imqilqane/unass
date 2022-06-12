@@ -17,15 +17,8 @@
 					<input type="date" name="toDate" id="date" class="w-100" required />
 				</div>
 				<div class="formateur">
-					<label for="formateur" style="display: block"
-						><strong>Le formateur</strong></label
-					>
-					<select
-						class="form-select w-100"
-						name="formateur"
-						id="formateur"
-						required
-					>
+					<label for="formateur" style="display: block"><strong>Le formateur</strong></label>
+					<select class="form-select w-100" name="formateur" id="formateur" required>
 						<option value="">Sélectionner un formateur</option>
 						{% for formateur in formateurs %}
 						<option value="{{formateur.id}}">
@@ -34,18 +27,26 @@
 						{% endfor %}
 					</select>
 				</div>
+				<div class="formateur">
+					<label for="antenne" style="display: block"><strong>Antenne</strong></label>
+					<select class="form-select w-100" name="antenne" id="antenne" required>
+						<option value="">Sélectionner un Antenne</option>
+						{% for antenne in antennes %}
+						<option value="{{antenne.id}}">
+							{{antenne.text}}
+						</option>
+						{% endfor %}
+					</select>
+				</div>
 				<div class="message">
-					<label for="message" style="display: block"
-						><strong>Un message pour le formateur</strong></label
-					>
-					<textarea
-						class="w-100"
-						name="message"
-						id="message"
-						placeholder="Message pour le formateur"
-						cols="30"
-						rows="10"
-					></textarea>
+					<label for="message" style="display: block"><strong>Un message pour le formateur</strong></label>
+					<textarea class="w-100" name="message" id="message" placeholder="Message pour le formateur"
+						cols="30" rows="10"></textarea>
+				</div>
+				<div class="convention">
+					<label for="convention" style="display: block"><strong>Est-ce que cette formation dans le cadre de
+							convention ?</strong></label>
+					<input type="checkbox" name="convention" id="convention">
 				</div>
 				<button class="btn btn-secondary w-100 mb-5">Créer</button>
 			</form>

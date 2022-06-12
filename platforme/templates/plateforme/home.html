@@ -131,7 +131,7 @@
 	<div class="row">
 		<div class="col-md-6 catalogue-formation display-block choose_us">
 			<div class="">
-				<h2 class="styled-h2">Catalogue Formation</h2>
+				<h2 class="styled-h2">Catalogue Des Formations</h2>
 			</div>
 			{% if catalogue_formation %}
 			<div class="formation">
@@ -154,12 +154,12 @@
 			{% endif %}
 		</div>
 		<div class="col-md-6 choose_us" style="display: block">
-			<h2 class="styled-h2">Antement Unass</h2>
+			<h2 class="styled-h2">Antennes Unass</h2>
 			<div class="formation">
 				{% if anetment_unass %}
 				<ul>
 					{% for antement in anetment_unass %}
-					<li>{{antement}}</li>
+					<li><a href="{{antement.link}}" class="antenneLink">{{antement.text}}</a></li>
 					{% endfor %}
 				</ul>
 				{% else %}
@@ -182,14 +182,14 @@
 <!-- our team -->
 {% if team %}
 <section class="our-team" id="team">
-	<h2>NOTRE ÉQUIPE</h2>
-	<div class="cards">
+	<h2>UNASS MAROC</h2>
+	<div class="cards row">
 		{% for member in team %}
 		<div class="my_card col-md-4">
 			<div class="image">
 				<img src="{{member.image.url}}" alt="" />
 				<div class="cover">
-					<div class="cover-content">
+					<div class="cover-content p-5">
 						<h3>{{member.role}}</h3>
 						<p>{{member.description}}</p>
 						<a href="{{member.link}}"><i class="far fa-eye"></i></a>
@@ -203,7 +203,7 @@
 </section>
 {% else %}
 <section class="our-team">
-	<h2>NOTRE ÉQUIPE</h2>
+	<h2>UNASS MAROC</h2>
 	<div class="cards row">
 		<div class="my_card col-md-4">
 			<div class="image">
@@ -305,7 +305,7 @@
 {% if choose_us %}
 <div class="choose_us container_size">
 	<div class="content col-md-7">
-		<h2>POURQUOI NOUS CHOISIR ?</h2>
+		<h2>POURQUOI NOUS ?</h2>
 		<p>{{choose_us.text}}</p>
 		<ul>
 			{% for reason in choose_us.reasons.all %}
@@ -320,7 +320,7 @@
 {% else %}
 <div class="choose_us container_size">
 	<div class="content col-md-7">
-		<h2>POURQUOI NOUS CHOISIR ?</h2>
+		<h2>POURQUOI NOUS ?</h2>
 		<p>
 			Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos animi
 			fugiat vitae? Quia atque expedita magnam pariatur nostrum delectus totam
@@ -343,7 +343,7 @@
 
 <!-- contact -->
 <section class="contact" id="contact">
-	<h2>NOUS CONTACTER</h2>
+	<h2>POUR NOUS CONTACTER</h2>
 	{% if contact_info %}
 	<div class="contact_info">
 		<div class="phone">

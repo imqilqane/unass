@@ -477,7 +477,8 @@ img.choose-us-img {
 .our-team .cards .my_card .cover .cover-content {
 	position: absolute;
 	top: 50%;
-	transform: translateY(-50%);
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .our-team .cards .my_card .cover .cover-content h3 {
@@ -621,4 +622,9 @@ img.choose-us-img {
 .cat-ant .row {
 	width: 80%;
 	margin: 0 auto;
+}
+
+.antenneLink {
+	text-decoration: none;
+	color: black;
 }

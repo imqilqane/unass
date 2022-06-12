@@ -11,6 +11,8 @@ from platforme.models import Formation
 from .forms import Userupdateform, Proupdateform
 from django.core.paginator import Paginator , PageNotAnInteger , EmptyPage
 from datetime import timedelta
+from platforme.models import AnetmentUnass
+import json
 
 def registerFormateure(request):
     if request.user.is_authenticated:
@@ -84,23 +86,36 @@ def accesBeneficiers(request):
 
     return render (request,'user/access_beneficier.html', context)
 
+def filterFormation(antenneId):
+    if antenneId:
+        antenne = AnetmentUnass.objects.get(id=antenneId)
+        formations = Formation.objects.filter(antenne=antenne)
+        return formations
+    return Formation.objects.all()
 
 @login_required(login_url='login')
 def profile (request):
     user = request.user
+    antennes = AnetmentUnass.objects.all()
     context = {
         'title': 'profile',
-        'user':user
+        'user':user,
+        'antennes':antennes
     }
+    body_unicode = request.body.decode('utf-8')
+    antenneId =  body_unicode[-1] if body_unicode else None
+    print("body_unicode => ",body_unicode)
     formations = None
     if request.user.is_director_national:
-        formations = Formation.objects.all()
+        formations = filterFormation(antenneId)
+        staff_as_formateaur_formations = Formation.objects.filter(teacher=request.user)
+        context["staff_as_formateaur_formations"] = staff_as_formateaur_formations
     elif request.user.is_staff: 
-        formations = Formation.objects.all()
+        formations = filterFormation(antenneId)
         staff_as_formateaur_formations = Formation.objects.filter(teacher=request.user)
         context["staff_as_formateaur_formations"] = staff_as_formateaur_formations
     else:
-        formations = Formation.objects.filter(teacher=request.user)
+        formations = filterFormation(antenneId)
 
     paginator = Paginator(formations,10)
     page =request.GET.get('page')

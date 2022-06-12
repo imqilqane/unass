@@ -16,7 +16,6 @@ from docx import Document
 from django.contrib.auth.decorators import login_required
 from user.models import User
 from django.contrib import messages
-from django.core.mail import EmailMessage
 from django.shortcuts import get_object_or_404
 from datetime import date
 from platforme.pdfHandling.pdfEdit import printOnPDF
@@ -67,14 +66,6 @@ def home(request):
 
         email_sub = "New Clients Wanna Contact Us"
         email_body = f"{fName} sent a message at {new_message.date}"
-        email_message = EmailMessage(
-            email_sub,
-            email_body,
-            "noreplay@stdojoservices.com",
-            ["inbmltd@gmail.com", ]
-        )
-        email_message.send()
-
         messages.success(
             request, 'Thank You For Contacting Us Your Message Is Recived And We Will Get In Touch With Very Soon')
         return redirect('home')
@@ -87,12 +78,17 @@ def home(request):
 def formation(request):
     if request.user.is_staff:
         formateurs = User.objects.filter(is_active = True)
+        antennes = AnetmentUnass.objects.all()
         if request.method == "POST":
             fromDate = request.POST.get('fromDate')
             toDate = request.POST.get('toDate')
             fermateur = request.POST.get('formateur')
-            message = request.POST.get('message')
+            antenne = request.POST.get('antenne')
+            print('antenne = ',antenne)
+            message = request.POST.get('message') 
+            convention = True if request.POST.get('convention') else False
             fermateurObj = User.objects.get(id=fermateur)
+            antenneObj = AnetmentUnass.objects.get(id=antenne)
 
             formation = Formation.objects.create(
                 president = request.user,
@@ -100,17 +96,13 @@ def formation(request):
                 toDate = toDate,
                 teacher  = fermateurObj,
                 message =  message,
+                antenne = antenneObj,
+                convention = convention
             )
-            message = EmailMessage(
-                '[UNASS MAROC] Demande de formation',
-                f"""Bonjour {fermateurObj.first_name}, {request.user.last_name} vous offrir une opportunité de faire une formation dans sa branche, pouvez-vous s'il vous plaît le vérifier et y répondre""",
-                "contact@unass.ma",
-                [fermateurObj.email, ]
-            )
-            message.send()
+          
             messages.success(request, "formation créé avec succès")
             return redirect('profile')
-        context = {"formateurs":formateurs}
+        context = {"formateurs":formateurs, "antennes":antennes}
         return render(request, "plateforme/formation_directeur.html", context)
     elif request.user.is_active:
         return redirect('profile')
@@ -142,13 +134,7 @@ def accpet_invetation(request, pk):
     if formation.teacher == request.user :
         formation.accepted = True
         formation.save()
-        message = EmailMessage(
-                '[UNASS MAROC] Response a votre demande de formation',
-                f"""Bonjour {formation.president.first_name}, le formateur {request.user.last_name} est accepte votre demande de formation""",
-                "contact@unass.ma",
-                [formation.president.email, ]
-            )
-        message.send()
+      
         messages.success(request, "Merci!")
         return redirect('profile')
     else :
@@ -160,13 +146,6 @@ def refuse_invetation(request, pk):
     if formation.teacher == request.user :
         formation.refused = True
         formation.save()
-        message = EmailMessage(
-                '[UNASS MAROC] Response a votre demande de formation',
-                f"""Bonjour {formation.president.first_name}, le formateur {request.user.last_name} est refuse votre demande de formation""",
-                "contact@unass.ma",
-                [formation.president.email, ]
-            )
-        message.send()
         messages.success(request, "Merci!")
         return redirect('profile')
     else :
@@ -187,13 +166,6 @@ def edit_formation(request, pk):
             formation.teacher = fermateurObj
             formation.refused = False
             formation.save()
-            message = EmailMessage(
-                '[UNASS MAROC] Demande de formation ',
-                f"""Bonjour {fermateurObj.first_name}, {request.user.last_name} vous offrir une opportunité de faire une formation dans sa branche, pouvez-vous s'il vous plaît le vérifier et y répondre""",
-                "contact@unass.ma",
-                [fermateurObj.email, ]
-            )
-            message.send()
             messages.success(request, "formation Édité avec succès")
             return redirect('profile')
         context = {"formateurs":formateurs, "formation":formation}
@@ -253,7 +225,7 @@ def add_students(request, pk, num):
                     diplomat.save()
                     printOnPDF(
                         student["name"], student["cin"], date, student["birthPlace"], student["formationPlace"], 
-                        str(formation.fromDate.strftime("%d/%m/%Y")), str(formation.toDate.strftime("%d/%m/%Y")), student["formationPlace"],str(formation.toDate.strftime("%d/%m/%Y")) , diplomat.serial_num, student["cin"], formation.id
+                        str(formation.fromDate.strftime("%d/%m/%Y")), str(formation.toDate.strftime("%d/%m/%Y")), student["formationPlace"],str(formation.toDate.strftime("%d/%m/%Y")) , diplomat.serial_num, student["cin"], formation.id, formation.teacher
                         )
                 messages.success(request, "Les bénéficiaires ajoutés avec succès")
                 return redirect('profile')

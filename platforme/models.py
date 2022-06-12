@@ -33,7 +33,7 @@ class Deplomat(models.Model):
                 self.year_num = last.year_num + 1
         else:
             self.year_num = 1
-        self.serial_num = f"{datetime.datetime.now().year} - {self.year_num} - MA"
+        self.serial_num = f"{datetime.datetime.now().year} - {self.year_num} - MA (CO) " if self.formation.convention else f"{datetime.datetime.now().year} - {self.year_num} - MA"
         return super(Deplomat, self).save(*args, **kwargs)
 
 
@@ -49,6 +49,9 @@ class Formation(models.Model):
     refused = models.BooleanField(default=False)
     cert_dir =  models.CharField(max_length=255, null=True, blank=True)
     created_at = models.DateField(auto_now_add=True, null=True, blank=True)
+    antenne = models.ForeignKey("AnetmentUnass", blank=True, null=True, on_delete=models.SET_NULL)
+    convention = models.BooleanField(default=False)
+
     
 
     def __str__(self) -> str:
@@ -89,9 +92,10 @@ class CaralogueFormation(models.Model):
 
 class AnetmentUnass(models.Model):
     text = models.TextField()
+    link = models.CharField(max_length = 300)
 
     def __str__(self):
-        return self.text[:50]
+        return self.text
 
     class Meta:
         verbose_name_plural = "Anetment Unass"
